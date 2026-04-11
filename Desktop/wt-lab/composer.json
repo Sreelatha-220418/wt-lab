@@ -1,0 +1,13 @@
+{
+    "name": "blood-donation-camp/wt-lab",
+    "description": "Blood Donation Camp Website with Authentication",
+    "type": "project",
+    "require": {
+        "mongodb/mongodb": "^1.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "BloodDonation\\": "src/"
+        }
+    }
+}

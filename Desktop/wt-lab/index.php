@@ -1,3 +1,15 @@
+<?php
+session_start();
+require "db.php";
+
+// Check if user is logged in
+$userLoggedIn = isset($_SESSION['user_email']);
+$userName = $userLoggedIn ? $_SESSION['user_name'] : '';
+
+// Get donor count from database
+$donorCount = countDonors();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +27,13 @@
     <header>
         <h1>🩸 Blood Donation Camp</h1>
         <nav>
-            <a href="#">Home</a>
-            <a href="register.html">Register</a>
-            <a href="#" onclick="showDetails()">About</a>
+            <a href="index.php">Home</a>
+            <?php if($userLoggedIn): ?>
+                <a href="profile.php">Profile</a>
+                <a href="logout.php">Logout</a>
+            <?php else: ?>
+                <a href="auth.php">Login</a>
+            <?php endif; ?>
         </nav>
     </header>
 
@@ -27,9 +43,14 @@
         <p>Your one donation can save up to 3 lives</p>
 
         <!-- Donor Count -->
-        <p id="donorCount"></p>
+        <p id="donorCount">Total Donors: <?php echo $donorCount; ?></p>
 
-        <a href="#" class="btn" onclick="confirmDonation()">Become a Donor</a>
+        <?php if($userLoggedIn): ?>
+            <p>Welcome back, <?php echo htmlspecialchars($userName); ?>!</p>
+            <a href="register.php" class="btn">Register as Donor</a>
+        <?php else: ?>
+            <a href="auth.php" class="btn">Become a Donor</a>
+        <?php endif; ?>
     </section>
 
     <!-- Info Section -->
@@ -41,12 +62,15 @@
 
         <div class="card">
             <h3>Who Can Donate?</h3>
-            <p>Healthy individuals aged 18–50 can donate blood safely.</p>
+            <p>Healthy individuals aged 18–65 can donate blood safely.</p>
         </div>
 
         <div class="card">
             <h3>Need Blood?</h3>
             <p>Find donors quickly and easily through our platform.</p>
+            <?php if($userLoggedIn): ?>
+                <a href="request.php" class="btn-small">Request Blood</a>
+            <?php endif; ?>
         </div>
     </section>
 
