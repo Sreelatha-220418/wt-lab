@@ -27,6 +27,7 @@ $userName = $_SESSION['user_name'];
         <h1>🩸 Blood Donation Camp</h1>
         <nav>
             <a href="index.php">Home</a>
+            <a href="file-manager.php">File Manager</a>
             <a href="profile.php">Profile</a>
             <a href="logout.php">Logout</a>
         </nav>

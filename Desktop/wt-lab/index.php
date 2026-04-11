@@ -29,6 +29,7 @@ $donorCount = countDonors();
         <nav>
             <a href="index.php">Home</a>
             <?php if($userLoggedIn): ?>
+                <a href="file-manager.php">File Manager</a>
                 <a href="profile.php">Profile</a>
                 <a href="logout.php">Logout</a>
             <?php else: ?>
