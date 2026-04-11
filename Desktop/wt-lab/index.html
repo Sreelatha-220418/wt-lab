@@ -17,7 +17,7 @@
         <nav>
             <a href="#">Home</a>
             <a href="register.html">Register</a>
-            <a href="#">Contact</a>
+            <a href="#" onclick="showDetails()">About</a>
         </nav>
     </header>
 
@@ -25,7 +25,11 @@
     <section class="hero">
         <h2>Save Lives, Donate Blood ❤️</h2>
         <p>Your one donation can save up to 3 lives</p>
-        <a href="register.html" class="btn">Become a Donor</a>
+
+        <!-- Donor Count -->
+        <p id="donorCount"></p>
+
+        <a href="#" class="btn" onclick="confirmDonation()">Become a Donor</a>
     </section>
 
     <!-- Info Section -->
@@ -50,6 +54,9 @@
     <footer>
         <p>© 2026 Blood Donation Camp | Save Lives ❤️</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 </html>
