@@ -4,7 +4,8 @@ let donorCount = 50;
 
 // ================= OBJECT =================
 const bloodCamp = {
-    name: "Blood Donation Camp",
+    name
+    : "Blood Donation Camp",
     location: "India",
     donors: donorCount,
 
@@ -12,6 +13,7 @@ const bloodCamp = {
     showDetails: function () {
         alert(`🏥 ${this.name}\n📍 Location: ${this.location}\n🧑 Donors: ${this.donors}`);
     },
+
 
     addDonor: function () {
         this.donors++;
